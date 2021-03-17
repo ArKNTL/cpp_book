@@ -11,8 +11,11 @@
 
 
 #include <iostream>
+#include <math.h>
 
 using namespace std;
+
+const double POUNDS_PER_METRIC_TON = 2205;
 
 int main(){
     double bagCapacity;
@@ -20,6 +23,9 @@ int main(){
     cout << "How many pounds can the bag hold? ";
     cin >> bagCapacity;
     
-    cout << "You would need " << 2205 / bagCapacity << " bags to store a ton" << endl;
+    bagCapacity = POUNDS_PER_METRIC_TON / bagCapacity;
+    bagCapacity = round(bagCapacity); // round off to the nearest digit for bags dont have decimals
+ 
+    cout << "You would need " << bagCapacity << " bags to store a ton" << endl;
     return 0;
 }
